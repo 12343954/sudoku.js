@@ -1,13 +1,13 @@
 {
-  "name": "sudoku.js",
+  "name": "sudoku-umd",
   "version": "1.0.0",
-  "description": "Sudoku.js ==========",
+  "description": "Sudoku solver and generator in UMD format",
   "main": "sudoku.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Check test folder\" && exit 1"
   },
   "repository": {
     "type": "git",

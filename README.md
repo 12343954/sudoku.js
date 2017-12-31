@@ -1,3 +1,5 @@
+**This is a fork of sudoku library available here: https://github.com/robatron/sudoku.js. It was forked in order to make it UMD friendly and publish in NPM**
+
 Sudoku.js
 ==========
 
