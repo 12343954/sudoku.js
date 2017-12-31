@@ -14,8 +14,8 @@
     "url": "git+https://github.com/apieceofbart/sudoku.js.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "rob.mcguiredale@gmail.com",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/apieceofbart/sudoku.js/issues"
   },
