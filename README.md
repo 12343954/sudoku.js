@@ -12,7 +12,24 @@ Implementation ideas borrowed from
 
 [demo]:http://htmlpreview.github.com/?https://github.com/robatron/sudoku.js/blob/master/demo/index.html
 
-Intro
+## Usage
+
+### Browser
+
+Just add a script with the `sudoku.js` file. This will create a global variable `sudoku`.
+
+### Node
+
+```
+// CommonJs
+const sudoku = require('sudoko.js');
+
+// ES6
+import sudoku from 'sudoku.js';
+```
+
+
+API
 --------------------------------------------------------------------------------
 
 Puzzles are represented by a string of digits, 1-9, and '.' as spaces. Each
