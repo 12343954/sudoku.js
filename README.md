@@ -23,11 +23,15 @@ Just add a script with the `sudoku.js` file. This will create a global variable 
 ### Node
 
 ```
+npm install sudoku-umd --save
+``` 
+then
+```
 // CommonJs
-const sudoku = require('sudoko.js');
+const sudoku = require('sudoko-umd');
 
 // ES6
-import sudoku from 'sudoku.js';
+import sudoku from 'sudoku-umd';
 ```
 
 
