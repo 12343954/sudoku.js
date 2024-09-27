@@ -1,8 +1,14 @@
-**This is a fork of sudoku library available here: https://github.com/robatron/sudoku.js.**  
+**This is a fork of sudoku library available here: https://github.com/apieceofbart/sudoku.js.**  
 
-**It was forked in order to make it UMD friendly and publish in NPM**
+**It was forked in order to make it more playable！**
 
-![Screen Shot 2024-09-27 at 11 39 18](https://github.com/user-attachments/assets/eb6c1f6b-d765-4962-aef6-6b175211d8a0)
+<a target="_blank" href="https://htmlpreview.github.io/?https://github.com/12343954/sudoku.js/blob/master/demo/index.html">
+<img width="460" src="https://github.com/user-attachments/assets/eb6c1f6b-d765-4962-aef6-6b175211d8a0" />
+</a>
+<br />
+<br />
+<br />
+
 
 
 Sudoku.js
@@ -18,6 +24,15 @@ Implementation ideas borrowed from
 [Michael Anderson][anderson].
 
 [demo]:https://htmlpreview.github.io/?https://github.com/12343954/sudoku.js/blob/master/demo/index.html
+
+## Features
+    🧩 Generate, Solve and Show Candidates the Sudoku
+      （Basic features in Sudoku.js）
+    🔥 Fill or mark in the blanks
+    🌟 Touch input, suitable for mobile terminals
+    🎨 Warnings after errors 
+    📦 Background music and mute
+    🎁 Simple html-js-css code, easy to read and modify
 
 ## Usage
 
@@ -222,28 +237,3 @@ References:
 [anderson]: https://github.com/andermic/
 
 
-
-License:
---------
-
-The MIT License (MIT)
-
-Copyright (c) 2014 Rob McGuire-Dale
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
