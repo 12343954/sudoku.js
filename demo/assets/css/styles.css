@@ -2,7 +2,7 @@
 */
 
 body {
-    padding-top: 60px;
+    /* padding-top: 60px; */
     padding-bottom: 40px;
 }
 
@@ -12,30 +12,145 @@ body {
     max-width: 600px;
  }
 
+ .modal-dialog{
+    max-width: 500px;
+    margin: 1.75rem auto;
+ }
+
+ .modal-dialog-centered {
+    min-height: calc(100% -(1.75rem* 2));
+    display: flex;
+    align-items: center;
+}
+.modal-content{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+.modal-body{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.modal-body h1,p{
+    text-align: center;
+}
+.modal-footer{
+    background-color: transparent;
+    padding-top: 2rem;
+}
+
+
 #footer {
     margin-top: 120px;    
 }
 
+#puzzle-controls{
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+}
+
+#puzzle-controls i{
+    margin-right: 0.1rem;
+}
+
 #sudoku-board {
     border: 2px solid black;
+    position: relative;
+}
+.table th, .table td{
+    border-right: 1px solid #ddd;
+}
+.table-numbers td{
+    border: none;
+}
+#sudoku-numbers td{
+    padding: 0px;
+    margin: 0px;
+}
+#sudoku-numbers td > div{
+    text-align: center;
+    font-size: 40px;
+    width: 59px;
+    height: 59px;
+    line-height: 59px;
+    margin: 4px;
+    background: rgb(76, 210, 175);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#sudoku-numbers .labeled{
+    background-color: transparent;
+    color: rgb(169, 166, 166);
+    border: 2px dotted transparent;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+}
+
+#sudoku-numbers .select{
+    /* background-color: transparent; */
+    /* color: rgb(169, 166, 166); */
+    border: 2px dotted gray;
+    width: 55px;
+    height: 55px;
+    /* line-height: 55px; */
 }
 
 #sudoku-board td {
     padding: 0px;
     margin: 0px;
+    position: relative;
 }
 
-#sudoku-board input.square {
+/* #sudoku-board input.square { */
+#sudoku-board div.square {
     display: block;
     margin-left:auto;
     margin-right:auto;
     margin-bottom:0px;
     width: 63px;
-    height: 45px;
+    height: 63px;
     padding: 0px;
     font-size: 40px;
     text-align: center;
+    border: none;
+    line-height: 63px;
+    cursor: pointer;
+    z-index: 100;
 }
+
+#sudoku-board div.mark {
+    position: absolute;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    left:6px;
+    top:6px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:0px;
+    width: 50px;
+    height: 50px;
+    padding: 0px;
+    font-size: 20px;
+    /* text-align: center; */
+    border: none;
+    /* line-height: 63px; */
+    /* cursor: pointer; */
+    /* z-index: -1; */
+    color: gray;
+    /* background-color: red; */
+    pointer-events: none;
+}
+
+#sudoku-board div.mark i{
+    font-style: normal;
+    margin: 2px;
+}
+
 
 #sudoku-board .border-right {
     border-right: 2px solid black;
@@ -45,6 +160,68 @@ body {
     border-bottom: 2px solid black;
 }
 
+#message{
+    display: inline-block;
+}
+.alert{
+    margin-bottom: unset !important;
+}
+
+.fly-block{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 59px;
+    height: 59px;
+    font-size: 40px;
+    line-height: 59px;
+    text-align: center;
+    z-index: 1000;
+    margin: 0;
+    background: rgb(76, 210, 175);
+    border-radius: 6px;
+}
+
 .green-text {
     color: ForestGreen !important;
+}
+
+.selected{
+    border: 3px solid rgb(209, 52, 175) !important;
+    border-radius: 6px !important;
+    margin: 4px !important;
+    width: 48px !important;
+    height: 48px !important;
+    line-height: 48px !important;
+    /* font-size: 30px !important; */
+}
+
+.btn-edit{
+    cursor: pointer;
+    width: 1.2rem;
+    height: 1.2rem;
+    background-image: url(../img/pencil-on.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 2rem;
+}
+
+.btn-off{
+    background-image: url(../img/pencil-off.png);
+}
+
+.btn-sound{
+    cursor: pointer;
+    width: 1.2rem;
+    height: 1.2rem;
+    background-image: url(../img/sound.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 2rem;
+}
+
+.btn-mute{
+    background-image: url(../img/mute.png);
 }

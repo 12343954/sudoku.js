@@ -1,180 +1,223 @@
-<!-- 
-    Sudoku.js demo
-    ==============
-    Read more at https://github.com/robatron/sudoku-js
--->
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Sudoku.js Demo</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
 
-        <!-- Styles -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="assets/css/styles.css" rel="stylesheet" />
-        <link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet" />
+<head>
+    <meta charset="utf-8">
+    <title>Sudoku App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Cooloo AI, https://github.com/12343954">
 
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-        <!--[if lt IE 9]>
-            <script src="assets/js/html5shiv-pre3.6.js"></script>
-        <![endif]-->
+    <!-- Styles -->
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./assets/css/styles.css" rel="stylesheet" />
+    <link href="./assets/css/bootstrap-responsive.min.css" rel="stylesheet" />
 
-        <!-- Fav and touch icons -->
-        <link rel="shortcut icon" href="ico/favicon.ico">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" 
-                href="ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" 
-                href="ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72"
-                href="ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" 
-                href="ico/apple-touch-icon-57-precomposed.png">
-    </head>
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+</head>
 
-    <body>
-        <div id="loading" class="container-narrow">
-            <p>
-                <img src="assets/img/pacman.gif"/> Loading...
-            </p>
-        </div>
-        <div id="app-wrap" class="container-narrow hidden">
-            <!-- Masthead -->
-            <h1>Sudoku.js Demo</h1>
-            <p class="lead">
-                A quick-n-dirty demonstration of
-                <a href="https://github.com/robatron/sudoku.js">
-                    Sudoku.js</a>.
-            </p>
-            
-            <p>
-                This demonstrates the following features of the Sudoku.js 
-                library:
-            </p>
-            <ul>
-                <li>
-                    <a href="https://github.com/robatron/sudoku.js#generate-a-sudoku-puzzle">
+<body>
+    <!-- <audio src="./assets/snd/game-success.mp3" autoplay></audio> -->
+    <div id="loading" class="container-narrow">
+        <p>
+            <img src="assets/img/pacman.gif" /> Loading...
+        </p>
+    </div>
+    <div id="app-wrap" class="container-narrow hidden">
+        <!-- Masthead -->
+        <h3>Sudoku App</h3>
+        <p class="lead hide">
+            A quick-n-dirty demonstration of
+            <a href="https://github.com/robatron/sudoku.js">
+                Sudoku.js</a>.
+        </p>
+
+        <p class="hide">
+            This demonstrates the following features of the Sudoku.js
+            library:
+        </p>
+        <ul class="hide">
+            <li>
+                <a href="https://github.com/robatron/sudoku.js#generate-a-sudoku-puzzle">
                     Generating</a> a Sudoku
-                </li>
-                <li>
-                    <a href="https://github.com/robatron/sudoku.js#solve-a-sudoku-puzzle">
+            </li>
+            <li>
+                <a href="https://github.com/robatron/sudoku.js#solve-a-sudoku-puzzle">
                     Solving</a> a Sudoku
-                </li>
-                <li>
-                    Finding the
-                    <a href="https://github.com/robatron/sudoku.js#get-candidates">
+            </li>
+            <li>
+                Finding the
+                <a href="https://github.com/robatron/sudoku.js#get-candidates">
                     candidates</a> for each square of a Sudoku
-                </li>
-            </ul>
-            
-            <br>
-            <p> 
-                Please visit the 
-                <a href="https://github.com/robatron/sudoku.js">
-                    project page</a> for more information.
-            </p>
-            <br>
-            <br>
-            
-            <!-- Tabs -->
-            <ul id="generator-tabs" class="nav nav-tabs">
-                <li>
-                    <a id="easy" rel="tooltip" title="Generate an easy puzzle" 
-                            href="#">Easy</a>
-                </li>
-                <li>
-                    <a id="medium" rel="tooltip" 
-                            title="Generate a medium puzzle" href="#">Medium</a>
-                </li>
-                <li>
-                    <a id="hard" rel="tooltip" title="Generate a hard puzzle" 
-                            href="#">Hard</a>
-                </li>
-                <li>
-                    <a id="very-hard" rel="tooltip" 
-                            title="Generate a very hard puzzle" href="#">
-                        Very hard    
-                    </a>
-                </li>
-                <li>
-                    <a id="insane" rel="tooltip" 
-                            title="Generate an insane puzzle" href="#">
-                        Insane
-                    </a>
-                </li>
-                <li>
-                    <a id="inhuman" rel="tooltip" 
-                            title="Generate an inhuman puzzle" href="#">
-                        Robots only
-                    </a>
-                </li>
-                <li class="pull-right">
-                    <a id="import" rel="tooltip" title="Import your own puzzle" 
-                            href="#">
-                        Import...
-                    </a>
-                </li>
-            </ul>
-            
-            <div id="import-controls">
-                <input id="import-string" class="input-block-level" 
-                    placeholder="Enter a puzzle as a string of 81 digits, 1-9, and '.' as spaces."
-                    maxlength="81"
-                    type="text"/>
-            </div>
-            
-            <div id="puzzle-controls">
-                <a id="refresh" class="pull-right" rel="tooltip" 
-                        title="Refresh the current puzzle" href="#">
-                    Refresh  
-                </a>
-            </div>
+            </li>
+        </ul>
 
-            <!-- Sudoku board -->
-            <table class="table table-striped">
-                <tbody id="sudoku-board"></tbody>
-            </table>
-            
+        <br>
+        <p class="hide">
+            Please visit the
+            <a href="https://github.com/robatron/sudoku.js">
+                project page</a> for more information.
+        </p>
+        <!-- <br> -->
+        <!-- <br> -->
+
+        <!-- Tabs -->
+        <ul id="generator-tabs" class="nav nav-tabs">
+            <li>
+                <a id="easy" rel="tooltip" title="Generate an easy puzzle" href="#">Easy</a>
+            </li>
+            <li>
+                <a id="medium" rel="tooltip" title="Generate a medium puzzle" href="#">Medium</a>
+            </li>
+            <li>
+                <a id="hard" rel="tooltip" title="Generate a hard puzzle" href="#">Hard</a>
+            </li>
+            <li>
+                <a id="very-hard" rel="tooltip" title="Generate a very hard puzzle" href="#">
+                    Very hard
+                </a>
+            </li>
+            <li>
+                <a id="insane" rel="tooltip" title="Generate an insane puzzle" href="#">
+                    Insane
+                </a>
+            </li>
+            <li>
+                <a id="inhuman" rel="tooltip" title="Generate an inhuman puzzle" href="#">
+                    Robots only
+                </a>
+            </li>
+            <li class="pull-right">
+                <a id="import" rel="tooltip" title="Import your own puzzle" href="#">
+                    Import...
+                </a>
+            </li>
+        </ul>
+
+        <div id="import-controls">
+            <input id="import-string" class="input-block-level"
+                placeholder="Enter a puzzle as a string of 81 digits, 1-9, and '.' as spaces." maxlength="81"
+                type="text" />
+        </div>
+
+        <div id="puzzle-controls">
+            <span id="error-counter"><i>❌</i><i>❌</i><i>❌</i></span>
             <!-- Message box -->
-            <div id="message" class="alert alert-error">
+            <div id="message" class="alert2 alert-error2">
                 <button type="button" class="close" data-dismiss="alert">
                     &times;
                 </button>
-                <div id="text"></div>
+                <span id="text">xxx</span>
             </div>
-            
-            <!-- Solver buttons -->
-            <div id="solver-controls">
-                <button id="solve" class="btn btn-primary" rel="tooltip" 
-                        title="Solve the current puzzle!" 
-                        data-placement="bottom">
-                    Solve!
-                </button>
-                <button id="get-candidates" class="btn pull-right" rel="tooltip" 
-                        title="Show all possible values for each empty square" 
-                        data-placement="bottom">
-                    Show Candidates
-                </button>
-            </div>
-            
-            
-            <div id="footer">
-                <hr>
-                <p class="pull-right muted">
-                    By <a href="http://robmd.net">Rob McGuire-dale</a>, 
-                    Feb. 2013
-                </p>
-            </div>
+            <a id="refresh" class="pull-right" rel="tooltip" title="Refresh the current puzzle" href="#">
+                Refresh
+            </a>
+            <a id="label-puzzle" class="pull-right btn-edit"></a>
+            <a id="btn-sound" class="pull-right btn-sound"></a>
+        </div>
 
-        </div> <!-- /container -->
-        
-        <!-- javascript
-             (Placed at the bottom so the DOM loads faster) -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="../sudoku.js"></script>
-        <script src="assets/js/app.js"></script>
-    </body>
+        <!-- Sudoku Numbers -->
+        <table class="table table-numbers" table-striped>
+            <tbody id="sudoku-numbers">
+                <tr>
+                    <td>
+                        <div>1</div>
+                    </td>
+                    <td>
+                        <div>2</div>
+                    </td>
+                    <td>
+                        <div>3</div>
+                    </td>
+                    <td>
+                        <div>4</div>
+                    </td>
+                    <td>
+                        <div>5</div>
+                    </td>
+                    <td>
+                        <div>6</div>
+                    </td>
+                    <td>
+                        <div>7</div>
+                    </td>
+                    <td>
+                        <div>8</div>
+                    </td>
+                    <td>
+                        <div>9</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Sudoku board -->
+        <table class="table table-striped">
+            <tbody id="sudoku-board"></tbody>
+        </table>
+
+        <!-- Solver buttons -->
+        <div id="solver-controls">
+            <button id="solve" class="btn btn-primary" rel="tooltip" title="Solve the current puzzle!"
+                data-placement="bottom">
+                Solve!
+            </button>
+            <button type="button" class="btn btn-primary hide" data-toggle="modal" data-target="#dialog">
+                Launch demo modal
+            </button>
+            <button id="get-candidates" class="btn pull-right" rel="tooltip"
+                title="Show all possible values for each empty square" data-placement="bottom">
+                Show Candidates
+            </button>
+            <button id="test-sounds" class="btn pull-right hide" rel="tooltip" title="Test Sounds" data-placement="bottom">
+                Sound Test
+            </button>
+
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="dialog" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                <div class="modal-content">
+                    <!-- <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div> -->
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Next round</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer">
+            <hr>
+            <p class="pull-right muted">
+                By <a href="https://github.com/12343954/sudoku.js">Cooloo AI</a>
+                base on <a href="https://github.com/robatron/sudoku.js" target="_blank">sudoku.js</a>,
+                Sep. 2024
+            </p>
+        </div>
+
+    </div> <!-- /container -->
+
+    <!-- javascript (Placed at the bottom so the DOM loads faster) -->
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/sudoku.min.js"></script>
+    <!-- <script src="./assets/js/app.min.js"></script> -->
+    <script src="./assets/js/app.js"></script>
+</body>
+
 </html>

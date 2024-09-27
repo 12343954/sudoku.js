@@ -5,14 +5,14 @@ Sudoku.js
 
 A Sudoku puzzle **generator** and **solver** JavaScript library.
 
-Check out the [online demo][demo] to see it in action.
+Check out the [Online DEMO][demo] to see it in action.
 
 Implementation ideas borrowed from
 ["Solving Every Sudoku Puzzle"][norvig-sudoku] by 
 [Peter Norvig][norvig], and a [generator/solver][anderson-sudoku] by 
 [Michael Anderson][anderson].
 
-[demo]:http://htmlpreview.github.com/?https://github.com/robatron/sudoku.js/blob/master/demo/index.html
+[demo]:http://htmlpreview.github.com/?https://github.com/12343954/sudoku.js/blob/master/demo/index.html
 
 ## Usage
 
