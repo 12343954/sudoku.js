@@ -17,7 +17,7 @@ Implementation ideas borrowed from
 [Peter Norvig][norvig], and a [generator/solver][anderson-sudoku] by 
 [Michael Anderson][anderson].
 
-[demo]:http://htmlpreview.github.com/?https://github.com/12343954/sudoku.js/blob/master/demo/index.html
+[demo]:https://htmlpreview.github.io/?https://github.com/12343954/sudoku.js/blob/master/demo/index.html
 
 ## Usage
 
