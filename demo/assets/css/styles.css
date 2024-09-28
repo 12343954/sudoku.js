@@ -10,49 +10,67 @@ body {
     /* Custom, narrow container */
     margin: 0 auto;
     max-width: 600px;
- }
+}
 
- .modal-dialog{
+.modal-dialog {
     max-width: 500px;
     margin: 1.75rem auto;
- }
+}
 
- .modal-dialog-centered {
+.modal-dialog-centered {
     min-height: calc(100% -(1.75rem* 2));
     display: flex;
     align-items: center;
 }
-.modal-content{
+
+.modal-content {
     display: flex;
     flex: 1;
     flex-direction: column;
 }
-.modal-body{
+
+.modal-body {
     display: flex;
     flex: 1;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.modal-body h1,p{
+
+.modal-body h1,
+p {
     text-align: center;
 }
-.modal-footer{
+
+.modal-footer {
     background-color: transparent;
     padding-top: 2rem;
 }
 
-
-#footer {
-    margin-top: 120px;    
+.header h3 {
+    display: inline-block;
 }
 
-#puzzle-controls{
+.header span {
+    margin-left: 2rem;
+    color: gray;
+}
+
+.header a {
+    text-decoration: none;
+    color: gray;
+}
+
+#footer {
+    margin-top: 120px;
+}
+
+#puzzle-controls {
     margin-bottom: 1rem;
     padding-left: 0.5rem;
 }
 
-#puzzle-controls i{
+#puzzle-controls i {
     margin-right: 0.1rem;
 }
 
@@ -60,17 +78,22 @@ body {
     border: 2px solid black;
     position: relative;
 }
-.table th, .table td{
+
+.table th,
+.table td {
     border-right: 1px solid #ddd;
 }
-.table-numbers td{
+
+.table-numbers td {
     border: none;
 }
-#sudoku-numbers td{
+
+#sudoku-numbers td {
     padding: 0px;
     margin: 0px;
 }
-#sudoku-numbers td > div{
+
+#sudoku-numbers td>div {
     text-align: center;
     font-size: 40px;
     width: 59px;
@@ -80,9 +103,10 @@ body {
     background: rgb(76, 210, 175);
     border-radius: 6px;
     cursor: pointer;
+    visibility: visible;
 }
 
-#sudoku-numbers .labeled{
+#sudoku-numbers .labeled {
     background-color: transparent;
     color: rgb(169, 166, 166);
     border: 2px dotted transparent;
@@ -91,13 +115,19 @@ body {
     line-height: 55px;
 }
 
-#sudoku-numbers .select{
+#sudoku-numbers .select {
     /* background-color: transparent; */
     /* color: rgb(169, 166, 166); */
     border: 2px dotted gray;
     width: 55px;
     height: 55px;
     /* line-height: 55px; */
+}
+
+#sudoku-numbers .hidden {
+    visibility: hidden;
+    cursor: default;
+    display: block;
 }
 
 #sudoku-board td {
@@ -109,9 +139,9 @@ body {
 /* #sudoku-board input.square { */
 #sudoku-board div.square {
     display: block;
-    margin-left:auto;
-    margin-right:auto;
-    margin-bottom:0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
     width: 63px;
     height: 63px;
     padding: 0px;
@@ -127,11 +157,11 @@ body {
     position: absolute;
     display: grid;
     grid-template-columns: auto auto auto;
-    left:6px;
-    top:6px;
-    margin-left:auto;
-    margin-right:auto;
-    margin-bottom:0px;
+    left: 6px;
+    top: 6px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
     width: 50px;
     height: 50px;
     padding: 0px;
@@ -141,12 +171,12 @@ body {
     /* line-height: 63px; */
     /* cursor: pointer; */
     /* z-index: -1; */
-    color: gray;
+    color: rgb(169, 166, 166);
     /* background-color: red; */
     pointer-events: none;
 }
 
-#sudoku-board div.mark i{
+#sudoku-board div.mark i {
     font-style: normal;
     margin: 2px;
 }
@@ -160,14 +190,15 @@ body {
     border-bottom: 2px solid black;
 }
 
-#message{
+#message {
     display: inline-block;
 }
-.alert{
+
+.alert {
     margin-bottom: unset !important;
 }
 
-.fly-block{
+.fly-block {
     position: absolute;
     left: 0;
     top: 0;
@@ -186,7 +217,7 @@ body {
     color: ForestGreen !important;
 }
 
-.selected{
+.selected {
     border: 3px solid rgb(209, 52, 175) !important;
     border-radius: 6px !important;
     margin: 4px !important;
@@ -196,7 +227,7 @@ body {
     /* font-size: 30px !important; */
 }
 
-.btn-edit{
+.btn-edit {
     cursor: pointer;
     width: 1.2rem;
     height: 1.2rem;
@@ -207,11 +238,11 @@ body {
     margin-right: 2rem;
 }
 
-.btn-off{
+.btn-off {
     background-image: url(../img/pencil-off.png);
 }
 
-.btn-sound{
+.btn-sound {
     cursor: pointer;
     width: 1.2rem;
     height: 1.2rem;
@@ -222,6 +253,6 @@ body {
     margin-right: 2rem;
 }
 
-.btn-mute{
+.btn-mute {
     background-image: url(../img/mute.png);
 }

@@ -111,7 +111,7 @@ var init_tabs = function () {
     $(TABS_SEL + " a").click(function (e) {
         e.preventDefault();
         !MUTE && SOUND.click?.play();
-        
+
 
         var $t = $(this);
         var t_name = $t.attr("id");
@@ -233,7 +233,8 @@ var refresh = () => {
     LABELED = false;
     error_counter(0);
     $(BOARD_SEL + ' div.mark').remove();
-    $(NUMBERS_SEL + ' div').removeClass('labeled').removeClass('select');
+    // $(NUMBERS_SEL + ' div').removeClass('labeled').removeClass('select').removeClass('hidden');
+    $(NUMBERS_SEL + ' div').removeClass('labeled select hidden');
 
     var tab_name = get_tab();
     // if(tab_name !== "import"){
@@ -281,7 +282,7 @@ var check_in = (elem) => {
         const match = selected.first().attr('id').match(/\d+/ig)
         const index = parseInt(match[0]) * 9 + parseInt(match[1])
         // console.log(`index=[${match[0]} x 9 + ${match[1]}] = ${index}`)
-        console.log(`select= ${selected_number}, check in= ${elem_number}, solved= ${SOLVED[index]}`)
+        // console.log(`select= ${selected_number}, check in= ${elem_number}, solved= ${SOLVED[index]}`)
         if (elem_number == selected_number) {
         } else if (selected_number == "") {
             const first = selected.first();
@@ -304,6 +305,11 @@ var check_in = (elem) => {
                 } else {
                     // add number into dir.mark
                     $('<i>' + elem_number + '</i>').appendTo(mark);
+                    let list = mark.find('i');
+                    if (list.length > 1) {
+                        // console.log(list)
+                        mark.html(list.sort((a, b) => parseInt(a.innerText) - parseInt(b.innerText)));
+                    }
                 }
                 return;
             }
@@ -314,7 +320,7 @@ var check_in = (elem) => {
             const distance = Math.sqrt(Math.pow(top0 - top, 2) + Math.pow(left0 - left, 2));
             const timeout = normalization(distance)
             const correct = parseInt(elem_number) == parseInt(SOLVED[index])
-            console.log(elem_number, SOLVED[index], correct)
+            // console.log(elem_number, SOLVED[index], correct)
             clone
                 .addClass("fly-block")
                 .appendTo("body")
@@ -335,7 +341,7 @@ var check_in = (elem) => {
                             });
                             first.text(elem_number);
                             first.parent().find('.mark').remove();
-                            check_all_in();
+                            check_all_in(first);
                         } else {
                             !MUTE && SOUND.error?.play();
                             error_counter(1);
@@ -388,7 +394,8 @@ var marker_change = (event) => {
 
 }
 
-var check_all_in = () => {
+var check_all_in = (elem) => {
+    remove_marks(elem);
     const empty = $(BOARD_SEL + ' div.square').filter((i, k) => k.innerText.length == 0)
     if (empty.length == 0 && FAILED == false) {
         SOUND.success?.play();
@@ -404,6 +411,27 @@ var check_all_in = () => {
             $('#dialog').modal('hide');
         })
     }
+}
+
+var remove_marks = elem => {
+    const text = elem.text();
+    const rowcol = elem.attr('id').match(/\d+/ig)
+    const row = parseInt(rowcol[0]);
+    const col = parseInt(rowcol[1]);
+    const regex = new RegExp(`row${row}\\-col\\d|row\\d\\-col${col}`);
+    const list = $(BOARD_SEL + ` div.square`)
+        .filter((i, k) => k.id != `row${row}-col${col}`
+            && regex.test(k.id));
+
+    // remove <i/> in div.mark
+    list?.each((i, k) => {
+        $(k).siblings('.mark')?.find('i:contains(' + text + ')')?.remove();
+    })
+
+    //disable number controls
+    if ($(BOARD_SEL + ' div.square:contains(' + text + ')').length == 9)
+        $(NUMBERS_SEL + ' div:contains(' + text + ')').addClass('hidden');
+
 }
 
 var solve_puzzle = function (puzzle) {
@@ -536,14 +564,25 @@ var display_puzzle = function (board, highlight) {
             }
             // Fire off a change event on the square
             $square.change().click((e) => {
-                number_click($(e.target));
+                cell_click($(e.target));
                 // e.preventDefault();
             });
         }
     }
+
+    // disable number controls
+    const dic = SUDOKU.match(/\d/g).reduce(function (accumulator, currentValue) {
+        accumulator[currentValue] = ++accumulator[currentValue] || 1
+        return accumulator
+    }, {})
+
+    // console.log(Object.keys(dic).filter(k => dic[k] == 9))
+    Object.keys(dic).filter(k => dic[k] == 9)?.forEach(k => {
+        $(NUMBERS_SEL + ' div:contains(' + k + ')').addClass('hidden');
+    })
 };
 
-var number_click = (elem) => {
+var cell_click = (elem) => {
     if (FAILED) return;
     !MUTE && SOUND.click.play();
     const text = elem.text();
@@ -556,7 +595,10 @@ var number_click = (elem) => {
         });
     } else {
         if (text) {
-            $(BOARD_SEL + " div.square:contains('" + text + "')").addClass('selected')
+            setTimeout(() => {
+                $(BOARD_SEL + " div.square:contains('" + text + "')").addClass('selected')
+            }, 50)
+            LABELED && $(NUMBERS_SEL + ' .select').removeClass('select');
         } else {
             setTimeout(() => {
                 elem.addClass("selected");
@@ -655,7 +697,7 @@ $(function () {
 
     // Start with generating an easy puzzle
     // click_tab("easy");
-    click_tab(LEVEL.inhuman);
+    click_tab(LEVEL.easy);
 
     // Hide the loading screen, show the app
     $("#app-wrap").removeClass("hidden");

@@ -30,7 +30,12 @@
     </div>
     <div id="app-wrap" class="container-narrow hidden">
         <!-- Masthead -->
-        <h3>Sudoku App</h3>
+        <div class="header">
+            <h3>Sudoku App</h3>
+            <span><a href="https://github.com/12343954/sudoku.js"
+                    target="_blank">https://github.com/12343954/sudoku.js</a></span>
+        </div>
+
         <p class="lead hide">
             A quick-n-dirty demonstration of
             <a href="https://github.com/robatron/sudoku.js">
@@ -114,7 +119,7 @@
                 </button>
                 <span id="text">xxx</span>
             </div>
-            <a id="refresh" class="pull-right" rel="tooltip" title="Refresh the current puzzle" href="#">
+            <a id="refresh" class="pull-right" rel="tooltip" href="#">
                 Refresh
             </a>
             <a id="label-puzzle" class="pull-right btn-edit"></a>
@@ -174,14 +179,15 @@
                 title="Show all possible values for each empty square" data-placement="bottom">
                 Show Candidates
             </button>
-            <button id="test-sounds" class="btn pull-right hide" rel="tooltip" title="Test Sounds" data-placement="bottom">
+            <button id="test-sounds" class="btn pull-right hide" rel="tooltip" title="Test Sounds"
+                data-placement="bottom">
                 Sound Test
             </button>
 
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="dialog" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade hide" id="dialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
                 <div class="modal-content">
                     <!-- <div class="modal-header">
@@ -216,7 +222,7 @@
     <script src="./assets/js/jquery.min.js"></script>
     <script src="./assets/js/bootstrap.min.js"></script>
     <script src="./assets/js/sudoku.min.js"></script>
-    <script src="./assets/js/app.min.js"></script>
+    <script src="./assets/js/app.js"></script>
 </body>
 
 </html>
