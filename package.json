@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/apieceofbart/sudoku.js.git"
   },
-  "keywords": [],
+  "keywords": ["sudoku", "sudoku.js"],
   "author": "rob.mcguiredale@gmail.com",
   "license": "MIT",
   "bugs": {
