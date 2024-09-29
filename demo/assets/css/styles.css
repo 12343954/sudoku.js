@@ -144,7 +144,7 @@ p {
     margin-bottom: 0px;
     border: 3px solid transparent;
     border-radius: 6px;
-    margin: 4px;
+    margin: 4px 6px;
     width: 54px;
     height: 54px;
     line-height: 54px;
@@ -229,7 +229,7 @@ p {
 .selected {
     border: 3px solid rgb(209, 52, 175) !important;
     border-radius: 6px !important;
-    margin: 4px !important;
+    /* margin: 4px !important; */
     width: 48px !important;
     height: 48px !important;
     line-height: 48px !important;
