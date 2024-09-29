@@ -142,13 +142,19 @@ p {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 0px;
-    width: 63px;
+    border: 3px solid transparent;
+    border-radius: 6px;
+    margin: 4px;
+    width: 54px;
+    height: 54px;
+    line-height: 54px;
+    /* width: 63px;
     height: 63px;
+    line-height: 63px; */
     padding: 0px;
     font-size: 40px;
     text-align: center;
     border: none;
-    line-height: 63px;
     cursor: pointer;
     z-index: 100;
 }
@@ -181,6 +187,9 @@ p {
     margin: 2px;
 }
 
+#sudoku-board div.checked {
+    background-color:rgba(27, 186, 219, 0.36);
+}
 
 #sudoku-board .border-right {
     border-right: 2px solid black;
@@ -224,7 +233,8 @@ p {
     width: 48px !important;
     height: 48px !important;
     line-height: 48px !important;
-    /* font-size: 30px !important; */
+    color: rgb(0, 21, 250) !important;
+    background-color: rgba(255, 0, 206, 0.08) !important;
 }
 
 .btn-edit {

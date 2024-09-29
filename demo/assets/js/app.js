@@ -14,7 +14,7 @@ var IMPORT_CONTROLS_SEL = "#import-controls";
 var SOLVER_CONTROLS_SEL = "#solver-controls";
 
 // Global Vars
-var SUDOKU, SOLVED;
+var SUDOKU, SOLVED, RECORD = { Score: 0, Start: 0, End: 0, };
 var FAILED = false, MUTE = false, LABELED = false;
 
 // Levels
@@ -339,7 +339,7 @@ var check_in = (elem) => {
                             clone.fadeOut(100, () => {
                                 clone.remove()
                             });
-                            first.text(elem_number);
+                            first.text(elem_number).addClass('checked');
                             first.parent().find('.mark').remove();
                             check_all_in(first);
                         } else {
@@ -555,6 +555,7 @@ var display_puzzle = function (board, highlight) {
                     $square.addClass("green-text");
                 } else {
                     // $square.attr("disabled", "disabled");
+                    $square.addClass('checked')
                 }
                 // $square.val(board_val);
                 $square.text(board_val);
@@ -614,7 +615,7 @@ var cell_click = (elem) => {
 
             // const match = elem.first().attr('id').match(/\d+/ig);
             // const index = parseInt(match[0]) * 9 + parseInt(match[1]);
-            // console.log(index, SOLVED[index])
+            // console.log(index, 'solved=', SOLVED[index])
         }
     }
 };
